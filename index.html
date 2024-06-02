@@ -1,175 +1,118 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .calculator {
-            background-color: #ffffff;
-            color: #333;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin-bottom: 20px;
-            animation: floatAnimation 4s ease-in-out infinite;
-        }
-        @keyframes floatAnimation {
-            0%, 100% {
-                transform: translateY(-5px);
-            }
-            50% {
-                transform: translateY(5px);
-            }
-        }
-        h2 {
-            margin-bottom: 20px;
-            color: #4CAF50;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: calc(100% - 22px);
-            margin-bottom: 20px;
-            background-color: #f9f9f9;
-        }
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: #4CAF50;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            animation: floatAnimation 4s ease-in-out infinite;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .result {
-            margin-top: 20px;
-            text-align: left;
-        }
-        .result pre {
-            background: #f9f9f9;
-            color: #333;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        @media screen and (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .calculator {
-                padding: 10px;
-                width: calc(100% - 20px);
-            }
-            input {
-                width: calc(100% - 12px);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kombinasi Python Code Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .calculator {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 20px;
+    }
+
+    .calculator h1 {
+      margin-bottom: 20px;
+    }
+
+    .calculator .input-container {
+      margin-bottom: 20px;
+    }
+
+    .calculator label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.9em;
+    }
+
+    .calculator input {
+      width: 60%;
+      padding: 6px;
+      margin: 5px 0;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 0.8em;
+    }
+
+    .calculator button {
+      background: #00f2fe;
+      color: #fff;
+      padding: 8px 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .calculator button:hover {
+      background: #4facfe;
+    }
+
+    .calculator .result {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="calculator">
-            <h2>Kalkulator Permutasi</h2>
-            <form onsubmit="calculatePermutation(event)">
-                <label for="n">Jumlah elemen (n):</label>
-                <input type="number" id="n" name="n" required>
-                <label for="r">Elemen yang diambil (r):</label>
-                <input type="number" id="r" name="r" required>
-                <button type="submit">Hitung Permutasi</button>
-            </form>
-            <div class="result">
-                <h3>Hasil Permutasi:</h3>
-                <pre id="permutationResult">...</pre>
-                <h3>Proses Perhitungan:</h3>
-                <pre id="permutationSteps">...</pre>
-            </div>
-        </div>
-        <div class="calculator">
-            <h2>Kalkulator Faktorial</h2>
-            <form onsubmit="calculateFactorial(event)">
-                <label for="number">Masukkan sebuah bilangan:</label>
-                <input type="number" id="number" name="number" required>
-                <button type="submit">Hitung Faktorial</button>
-            </form>
-            <div class="result">
-                <h3>Hasil Faktorial:</h3>
-                <pre id="factorialResult">...</pre>
-                <h3>Proses Perhitungan:</h3>
-                <pre id="factorialSteps">...</pre>
-            </div>
-        </div>
+  <div class="calculator">
+    <h1>Kalkulator Kombinasi</h1>
+    <div class="input-container">
+      <label for="n">Masukkan nilai n:</label>
+      <input type="number" id="n" placeholder="n" onkeydown="if(event.keyCode==13) calculateCombination()">
     </div>
-    <script>
-        function factorial(n) {
-            let result = 1;
-            let steps = `${n}! = `;
-            for (let i = 2; i <= n; i++) {
-                result *= i;
-                steps += `${i}`;
-                if (i < n) steps += ' x ';
-            }
-            steps += ` = ${result}`;
-            return {result, steps};
-        }
+    <div class="input-container">
+      <label for="r">Masukkan nilai r:</label>
+      <input type="number" id="r" placeholder="r" onkeydown="if(event.keyCode==13) calculateCombination()">
+    </div>
+    <button onclick="calculateCombination()">Hitung Kombinasi</button>
+    <div class="result" id="result"></div>
+  </div>
 
-        function permutation(n, r) {
-            if (r > n) return {result: 0, steps: "r tidak boleh lebih besar dari n"};
-            let permResult = 1;
-            let steps = `P(${n}, ${r}) = `;
-            for (let i = 0; i < r; i++) {
-                permResult *= (n - i);
-                steps += `${n - i}`;
-                if (i < r - 1) steps += ' x ';
-            }
-            steps += ` = ${permResult}`;
-            return {result: permResult, steps};
-        }
+  <script>
+    function calculateCombination() {
+      const n = parseInt(document.getElementById('n').value);
+      const r = parseInt(document.getElementById('r').value);
 
-        function calculatePermutation(event) {
-            event.preventDefault();
-            const n = parseInt(document.getElementById('n').value);
-            const r = parseInt(document.getElementById('r').value);
-            const {result, steps} = permutation(n, r);
-            document.getElementById('permutationResult').innerText = result;
-            document.getElementById('permutationSteps').innerText = steps;
-        }
+      if (isNaN(n) || isNaN(r) || r > n) {
+        document.getElementById('result').innerText = 'Input tidak valid. Pastikan r tidak lebih besar dari n.';
+        return;
+      }
 
-        function calculateFactorial(event) {
-            event.preventDefault();
-            const number = parseInt(document.getElementById('number').value);
-            const {result, steps} = factorial(number);
-            document.getElementById('factorialResult').innerText = result;
-            document.getElementById('factorialSteps').innerText = steps;
-        }
-    </script>
+      const combination = factorial(n) / (factorial(r) * factorial(n - r));
+      document.getElementById('result').innerText = `Kombinasi: ${combination}`;
+    }
+
+    function factorial(num) {
+      let result = 1;
+      for (let i = 2; i <= num; i++) {
+        result *= i;
+      }
+      return result;
+    }
+  </script>
 </body>
 </html>
