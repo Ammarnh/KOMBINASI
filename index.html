@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kombinasi Python Code Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      animation: floatAnimation 4s ease-in-out infinite;
+    }
+
+    @keyframes floatAnimation {
+      0%, 100% {
+        transform: translateY(-5px);
+      }
+      50% {
+        transform: translateY(5px);
+      }
+    }
+
+    .calculator h1,
+    .calculator input,
+    .calculator button,
+    .calculator .result {
+      animation: floatAnimation 4s ease-in-out infinite;
+    }
+
+    .calculator h1 {
+      margin-bottom: 20px;
+    }
+
+    .calculator .input-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .calculator input {
+      width: calc(48%);
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .calculator button {
+      background: #feb47b;
+      color: #fff;
+      padding: 10px 20px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .calculator button:hover {
+      background: #ff7e5f;
+    }
+
+    .calculator .result {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>Kalkulator Kombinasi</h1>
+    <div class="input-container">
+      <input type="number" id="n" placeholder="Jumlah elemen (n)">
+      <input type="number" id="r" placeholder="Jumlah elemen yang diambil (r)">
+    </div>
+    <button onclick="calculateCombination()">Hitung Kombinasi</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateCombination() {
+      const n = parseInt(document.getElementById('n').value);
+      const r = parseInt(document.getElementById('r').value);
+
+      if (isNaN(n) || isNaN(r) || r > n) {
+        document.getElementById('result').innerText = 'Input tidak valid. Pastikan r tidak lebih besar dari n.';
+        return;
+      }
+
+      function factorial(num) {
+        if (num === 0 || num === 1) {
+          return 1;
+        } else {
+          return num * factorial(num - 1);
+        }
+      }
+
+      const jumlahKombinasi = factorial(n) / (factorial(r) * factorial(n - r));
+      document.getElementById('result').innerText = `Jumlah kombinasi dari ${n} elemen yang diambil ${r} buah adalah: ${jumlahKombinasi}`;
+    }
+  </script>
+</body>
+</html>
